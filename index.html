@@ -503,6 +503,33 @@ const LEVELS = ["A1","A2","B1","B2","C1","C2"];
 const TYPES = ["Speaking","Conversation","Grammar","Pronunciation","Writing","IELTS Prep","Cambridge Exam","Business English","General English","Kids / Young Learners"];
 const AVATAR_COLORS = ["#125A63","#DB7A38","#3E6DB0","#8A4FB0","#2C935F","#B0503E","#0E7C86","#B98218"];
 
+/* ------------------------------------------------------------------
+   SEED DATA — the schedule shown on non-Claude hosting (e.g. Railway).
+   Claude uses live cloud save and ignores this. To change what the
+   Railway/website version shows, edit SEED below and bump SEED_VERSION,
+   then push to GitHub — Railway redeploys automatically.
+------------------------------------------------------------------ */
+const SEED_VERSION = 1;
+const SEED = {
+  students:[
+    {id:"nickyen4401576",name:"Nick Yen",level:"C1",types:["Conversation","Speaking"],
+      goals:"Improve conversation for going and studying abroad, within a 1–3 month timeline. Wants to understand fast natural speech, express himself more fluently, and clean up grammar. Previously took TOEFL (83–108, C1).",
+      notes:"Adult (26–44). Has been learning English 3–5 years. Self-identified challenges: understanding what people say, expressing fluently, and grammar accuracy. Availability: every day 18:00–24:00 (first lessons booked in the morning).",
+      nextSteps:"Start with a diagnostic conversation to gauge fluency and listening. Build a fluency + grammar-repair routine around real 'going abroad' situations.",
+      materials:"Customized materials, learning handouts, current affairs articles, picture books, thematic videos",color:"#125A63"},
+    {id:"bryanlo2644651",name:"Bryan Lo",level:"A2",types:["Kids / Young Learners","Writing"],
+      goals:"Improve English reading and writing, and speak correct, fluent English with confidence. (Goal set by Bryan's parent for their 12-year-old son.)",
+      notes:"12 years old, high school S1. Loves space & planets, Roblox, flags, and ocean animals — happy to just have fun chatting. Keep lessons playful and topic-driven around his interests. NOTE: you told the parent you weren't available on the requested day and asked to reschedule — confirm the 28 Sep slot before teaching.",
+      nextSteps:"Open with a fun warm-up on a favourite topic (space / Roblox / ocean animals), then a short guided reading and a few writing sentences each lesson.",
+      materials:"",color:"#DB7A38"},
+  ],
+  lessons:[
+    {id:"lesnick20260919t0930",studentId:"nickyen4401576",date:"2026-09-19",time:"09:30",type:"Conversation",topic:"",status:"scheduled",plan:""},
+    {id:"lesnick20260919t1000",studentId:"nickyen4401576",date:"2026-09-19",time:"10:00",type:"Conversation",topic:"",status:"scheduled",plan:""},
+    {id:"lesbryan20260928t1100",studentId:"bryanlo2644651",date:"2026-09-28",time:"11:00",type:"Kids / Young Learners",topic:"",status:"scheduled",plan:""},
+  ],
+};
+
 const store = (function(){
   let db=null, mode="memory";
   const mem={};const subs={};
@@ -520,10 +547,22 @@ const store = (function(){
   }
   function emit(coll){const arr=[...col(coll).values()];subsFor(coll).forEach(cb=>cb(arr));}
 
+  function applySeed(){
+    // On non-Claude hosting, load the schedule embedded in the code.
+    // Re-applied only when SEED_VERSION changes, so edits made on the
+    // site persist between updates but a new push always refreshes.
+    let sv=null;try{sv=localStorage.getItem(LS+".seed");}catch(e){}
+    if(String(SEED_VERSION)===sv)return;
+    col("students").clear();col("lessons").clear();
+    (SEED.students||[]).forEach(d=>col("students").set(d.id,{...d}));
+    (SEED.lessons||[]).forEach(d=>col("lessons").set(d.id,{...d}));
+    saveLS();
+    try{localStorage.setItem(LS+".seed",String(SEED_VERSION));}catch(e){}
+  }
   async function init(){
     try{ if(window.claude&&claude.use){ db=await claude.use("db"); } }catch(e){ db=null; }
     if(db){ mode="db"; }
-    else { mode="local"; loadLS(); }
+    else { mode="local"; loadLS(); applySeed(); }
     return mode;
   }
   function subscribe(coll,cb){
