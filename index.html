@@ -509,9 +509,14 @@ const AVATAR_COLORS = ["#125A63","#DB7A38","#3E6DB0","#8A4FB0","#2C935F","#B0503
    Railway/website version shows, edit SEED below and bump SEED_VERSION,
    then push to GitHub — Railway redeploys automatically.
 ------------------------------------------------------------------ */
-const SEED_VERSION = 1;
+const SEED_VERSION = 2;
 const SEED = {
   students:[
+    {id:"loya",name:"Loya",level:"B1",types:["Conversation","Kids / Young Learners"],
+      goals:"Build conversation fluency and confidence in British English — she's learning for fun, with a 1–3 month horizon. Her main challenge is a limited vocabulary.",
+      notes:"12-year-old girl, learning English as a hobby. Prefers British English. Medium level (≈B1). Keep lessons light, fun and topic-driven; grow vocabulary through things she enjoys.",
+      nextSteps:"After the trial, set a regular routine: vocabulary-building plus conversation on topics she likes (animals, hobbies, everyday life).",
+      materials:"Learning handouts, picture books, thematic videos",color:"#8A4FB0"},
     {id:"nickyen4401576",name:"Nick Yen",level:"C1",types:["Conversation","Speaking"],
       goals:"Improve conversation for going and studying abroad, within a 1–3 month timeline. Wants to understand fast natural speech, express himself more fluently, and clean up grammar. Previously took TOEFL (83–108, C1).",
       notes:"Adult (26–44). Has been learning English 3–5 years. Self-identified challenges: understanding what people say, expressing fluently, and grammar accuracy. Availability: every day 18:00–24:00 (first lessons booked in the morning).",
@@ -524,6 +529,45 @@ const SEED = {
       materials:"",color:"#DB7A38"},
   ],
   lessons:[
+    {id:"lesloya20260918trial",studentId:"loya",date:"2026-09-18",time:"",type:"Conversation",topic:"Trial lesson — getting to know you",status:"scheduled",plan:`## Lesson aim
+Get to know Loya, help her feel relaxed speaking English, and spark her interest — while gently checking her level and starting to grow her vocabulary. This is a 25-minute trial lesson.
+
+## Warm-up — hello & rapport (0–3 min)
+- Greet her warmly in British English: "Hello Loya, lovely to meet you! How are you today?"
+- Keep it relaxed and smiley: "Shall we start with something fun?"
+- Teach one natural phrase she can reuse straight away: **"I'm really into…"** (for talking about hobbies).
+
+## Getting to know you (3–10 min)
+Ask simple, open questions and let her do most of the talking — notice where her vocabulary runs out (that's exactly what we'll build on):
+- "What do you like doing in your free time?"
+- "Do you have a favourite hobby or a favourite animal?"
+- "What's your favourite subject at school?"
+- "Tell me a little about your family or your best friend."
+Recast her answers into fuller, natural British English and feed her 3–4 new words as they come up.
+
+## Vocabulary through a picture book / video (10–18 min)
+- Share a **picture book** page or a short **thematic video** (1–2 minutes) on a topic she likes — animals, everyday life, or a hobby.
+- Pull out 6 useful words. Say each in British English; she repeats them.
+- Quick game: "Can you make a sentence with ___?"
+
+## Speaking task (18–22 min)
+- Picture description or a mini role-play: "Tell me what you can see." She uses the new words in full sentences: "I can see…", "She is…".
+- Gently encourage fluency over perfection — keep her talking.
+
+## Wrap-up & next steps (22–25 min)
+- Praise something specific she did well ("Your pronunciation of ___ was lovely!").
+- Set a tiny, fun homework from a **handout**: 5 new words, and draw or find a picture for each.
+- Agree the focus for regular lessons: growing vocabulary and conversation around topics she enjoys.
+
+## Materials to use
+- **Picture book** — for the vocabulary segment (a page on animals or daily life works well).
+- **Thematic video** — a 1–2 minute clip on her favourite topic.
+- **Handout** — a simple 5-word vocabulary sheet for homework.
+
+## What to assess in the trial
+- How much she understands and can say — to confirm the "medium" (B1) level.
+- Her confidence, and which topics she lights up about.
+- Where a lack of vocabulary slows her down — the main thing to build on next.`},
     {id:"lesnick20260919t0930",studentId:"nickyen4401576",date:"2026-09-19",time:"09:30",type:"Conversation",topic:"",status:"scheduled",plan:""},
     {id:"lesnick20260919t1000",studentId:"nickyen4401576",date:"2026-09-19",time:"10:00",type:"Conversation",topic:"",status:"scheduled",plan:""},
     {id:"lesbryan20260928t1100",studentId:"bryanlo2644651",date:"2026-09-28",time:"11:00",type:"Kids / Young Learners",topic:"",status:"scheduled",plan:""},
