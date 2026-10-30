@@ -509,7 +509,7 @@ const AVATAR_COLORS = ["#125A63","#DB7A38","#3E6DB0","#8A4FB0","#2C935F","#B0503
    Railway/website version shows, edit SEED below and bump SEED_VERSION,
    then push to GitHub — Railway redeploys automatically.
 ------------------------------------------------------------------ */
-const SEED_VERSION = 3;
+const SEED_VERSION = 4;
 const SEED = {
   students:[
     {id:"loya",name:"Loya",level:"B1",types:["Conversation","Kids / Young Learners"],
@@ -527,6 +527,11 @@ const SEED = {
       notes:"12 years old, high school S1. Loves space & planets, Roblox, flags, and ocean animals — happy to just have fun chatting. Keep lessons playful and topic-driven around his interests. NOTE: you told the parent you weren't available on the requested day and asked to reschedule — confirm the 28 Sep slot before teaching.",
       nextSteps:"Open with a fun warm-up on a favourite topic (space / Roblox / ocean animals), then a short guided reading and a few writing sentences each lesson.",
       materials:"",color:"#DB7A38"},
+    {id:"mobylai",name:"Moby Lai",level:"?",types:["General English","Speaking"],
+      goals:"Unknown yet — find out in the trial lesson (why they're learning English, any deadline, what they want to do in 3 months).",
+      notes:"New student. Age, level and goals are all unknown — the trial lesson is designed to work for a child, teen or adult. Fill in the profile page of the teacher guide during the lesson, then update this card (level, age, goals).",
+      nextSteps:"After the trial: set the CEFR level from the level check, decide the focus (speaking / grammar / exam / work), and plan lesson 2 around their interests.",
+      materials:"Moby Lai - Trial Lesson Slides.pdf, Moby Lai - Trial Lesson Teacher Guide.pdf",color:"#3E6DB0"},
   ],
   lessons:[
     {id:"lesloya20260918trial",studentId:"loya",date:"2026-09-18",time:"",type:"Conversation",topic:"Trial lesson — getting to know you",status:"scheduled",plan:`## Lesson aim
@@ -621,6 +626,43 @@ My suggestion to pair with the speaking lesson: train Nick's ear for fast, natur
 ## What to assess
 - Gist vs detail comprehension, how well he copies rhythm and speed when shadowing, and any growth in his own pace.`},
     {id:"lesbryan20260928t1100",studentId:"bryanlo2644651",date:"2026-09-28",time:"11:00",type:"Kids / Young Learners",topic:"",status:"scheduled",plan:""},
+    {id:"lesmobylai20261030trial",studentId:"mobylai",date:"2026-10-30",time:"",type:"General English",topic:"Trial lesson — getting to know you + Answer · Add · Ask",status:"scheduled",plan:`## Lesson aim
+Get to know Moby (age, background, goals, interests), find their CEFR level, and teach one skill that works at any age and level: **Answer · Add · Ask** — giving longer answers and keeping a conversation going. About 30 minutes (25-min version: 2 level-check steps, skip "Make it better", 2 topic cards).
+
+Materials: *Moby Lai - Trial Lesson Slides.pdf* (18 slides) and *Moby Lai - Trial Lesson Teacher Guide.pdf* (6 pages, incl. profile form and feedback template).
+
+## Hello (0–3 min) · slides 1–3
+- Introduce yourself in 3 sentences, show the plan.
+- Moby interviews YOU: 3 questions. Shows whether they can form questions, and relaxes them.
+- First 10 seconds: is it a child with a parent, a teen, or an adult? Adjust speed and tone.
+
+## About you + goals (3–9 min) · slides 4–5
+- Tell me about yourself / what you do every day / free time / English history.
+- Moby picks why they're learning English and what's difficult. Ask: "What do you want to do in English in 3 months?"
+- Fill the profile (guide page 5).
+
+## Level check (9–16 min) · slides 6–12
+- 5 steps, Starter → Advanced. 1–2 questions per step; **stop where answers break down**.
+- 8 quick grammar items (A1 → C1). Key: is, don't, went, taller, since, will stay, had, will have worked.
+- Don't correct here — just note.
+
+## Learn: Answer · Add · Ask (16–21 min) · slides 13–15
+- Short vs full answer: "Yes." vs "Yes, I really like music, especially pop — I listen to it on the way to school or work. What about you?"
+- **Answer** in a full sentence → **Add** a reason/example → **Ask** a question back.
+- Phrase bank in 3 columns (Starter / Intermediate / Advanced) — Moby chooses the comfortable one.
+- Fix 4 short answers together.
+
+## Practise (21–26 min) · slide 16
+- Topic cards (food, weekend, places, people, screens, future, memory, choice). Moby answers with Answer · Add · Ask, then asks you back. 3–4 cards. Correct 1–2 things after each turn.
+
+## Your plan (26–30 min) · slides 17–18
+- Level in simple words, 2 strengths, 1–2 things to work on.
+- Homework: child — draw + 3 sentences; teen/adult — 1-min voice message on a topic card; everyone — 3 questions for next lesson.
+- Ask preferences (topics, focus, how often) and book lesson 2.
+
+## What to assess
+- Age group, goals, deadline, interests, preferences.
+- CEFR level: fluency, accuracy, range, listening, pronunciation, confidence.`},
   ],
 };
 
